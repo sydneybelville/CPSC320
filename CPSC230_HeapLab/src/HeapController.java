@@ -29,11 +29,13 @@ public class HeapController {
 			 
 			 heapModel.makeTree(scanner);
 			 
-			 System.out.println("Original Tree: " + heapModel.getTree());
+			 System.out.print("Original Tree: ");
 			 
-			 heapModel.heapSort(heapModel.getTree());
+			 System.out.println(heapModel.getTree());
 			 
-			 System.out.println("Sorted Tree: " + heapModel.getTree());
+			 ArrayList<Integer> sortedTree = heapModel.heapSort(heapModel.getTree());
+			 
+			 System.out.println("Sorted Tree: " + sortedTree);
 		 }
 	}
 }
