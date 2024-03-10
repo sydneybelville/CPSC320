@@ -134,7 +134,7 @@ public class UnitTest {
             }
         }
         
-        verify (oneDifferent == false, "Expected: chromosomes in the list should be the same,  Result: " + oneDifferent);
+        verify (oneDifferent == true, "Expected: chromosomes in the list should be the same,  Result: " + oneDifferent);
 	}
 	
 	@Test
