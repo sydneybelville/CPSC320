@@ -6,7 +6,7 @@ public class Pawn extends Piece {
 	}
 	
 	public String getSymbol () {
-		return "p"+super.getSymbol ();
+		return "P"+super.getSymbol ();
 	}
 
 	public boolean needsClearPath () {

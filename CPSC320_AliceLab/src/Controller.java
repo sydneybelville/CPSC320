@@ -16,6 +16,10 @@ public class Controller {
 	public void go() {
 		// Need to get the boards, run through all the boards, then solve them
 		this.boards = getBoard();
+		for (int i = 0; i < boards.length; i++) {
+			String capturePath = solveBoard(boards[i]);
+			System.out.println("Board " + (i + 1) + ": " + capturePath);
+		}
 	}
 	
 	
@@ -101,7 +105,7 @@ public class Controller {
 	
 	
 	
-	public String runThroughBoard (String capturePath, Board boards, Piece currentPlayer, int rowForCurrentPiece, int columnForCurrentPiece, int columnForPreviousPiece, int rowForPreviousPiece) {
+	public String runThroughBoard (String capturePath, Board boards, Piece currentPlayer, int columnForCurrentPiece, int rowForCurrentPiece, int columnForPreviousPiece, int rowForPreviousPiece) {
 		// Add the current piece to the path
 	    capturePath += boards.getPiece(rowForCurrentPiece, columnForCurrentPiece).getSymbol();
 
