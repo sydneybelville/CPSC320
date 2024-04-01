@@ -106,6 +106,8 @@ public class Controller {
 	
 	
 	public String runThroughBoard (String capturePath, Board boards, Piece currentPlayer, int columnForCurrentPiece, int rowForCurrentPiece, int columnForPreviousPiece, int rowForPreviousPiece) {
+		if (currentPlayer == null)
+			return null;
 		// Add the current piece to the path
 	    capturePath += boards.getPiece(rowForCurrentPiece, columnForCurrentPiece).getSymbol();
 
