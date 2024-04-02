@@ -20,11 +20,8 @@ public class Board {
 		return board.length;
 	}
 	
-	public boolean isValidMove (PieceColor player, int startRow, int startCol, int endRow, int endCol) {
+	public boolean isValidMove (int startRow, int startCol, int endRow, int endCol) {
 		if (! isValidCoords(startRow, startCol) || ! isValidCoords(endRow, endCol))
-			return false;
-		
-		if (! isPlayersPiece (player, board[startRow][startCol]))
 			return false;
 		
 		if (! board[startRow][startCol].isValidMove (startRow, startCol, endRow, endCol))
@@ -33,7 +30,7 @@ public class Board {
 		if (isBlockedMove (startRow, startCol, endRow, endCol))
 			return false;
 		
-		if (board[endRow][endCol] != null && board[endRow][endCol].getColor() == player)
+		if (board[endRow][endCol] != null)
 			return false;
 		
 		return true;

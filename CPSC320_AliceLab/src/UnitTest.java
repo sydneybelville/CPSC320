@@ -65,17 +65,18 @@ public class UnitTest {
 	@Test
 	public void testBoards() {
 		Controller controller = new Controller();
-		// Test the Pawn piece with the first board
-		verify(!(controller.solveBoard(boards[0]).contains("PRRRP")), "Expected: The board should have returned PRRRP as the steps,  Result: " + controller.solveBoard(boards[0]));
-		// Test the Bishop piece with the second board
+		String result = controller.solveBoard(boards[0]);
+		// Test the Pawn piece with the ______ board
 		
-		// Test the Rook piece with the third board
+		// Test the Bishop piece with the ______ board
+		verify(result.contains("Alice is stuck!"), "Expected: The board should have returned Alice is stuck! as the steps,  Result: " + result);
+		// Test the Rook piece with the ______ board
 		
-		// Test the Knight piece with the fourth board
+		// Test the Knight piece with the ______ board
 		
-		// Test the Queen and King pieces with the fifth board
+		// Test the Queen and King pieces with the _____ board
 		
-		// Test a non-working board with the sixth board
+		// Test a non-working board with the ______ board
 		
 	}
 	

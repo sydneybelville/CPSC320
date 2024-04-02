@@ -114,7 +114,7 @@ public class Chess {
 				endCol = input.nextInt ();
 			}
 			
-			if (board.isValidMove(playerColor, row, col, endRow, endCol)) {
+			if (board.isValidMove(row, col, endRow, endCol)) {
 				Piece piece = board.getPiece(row, col);
 				
 				board.setPiece(endRow, endCol, piece);
