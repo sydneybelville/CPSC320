@@ -114,10 +114,8 @@ public class Controller {
 		// Add the current piece to the path
 	    capturePath += boards.getPiece(rowForCurrentPiece, columnForCurrentPiece).getSymbol();
 
-	    System.out.println(boards.countPieces(PieceColor.Black));
 	    // Check if all pieces have been captured but the one at the top
 	    if (boards.countPieces(PieceColor.Black) == 1 && rowForCurrentPiece == 0) {
-	    	System.out.println("Made it here");
 	        return capturePath;
 	    }
 	    
@@ -131,14 +129,13 @@ public class Controller {
 	        for (int column = 0; column < 8; column++) {
 	        	// if current row and column are equal to row and column, return null
 	    		if (rowForCurrentPiece == row && columnForCurrentPiece == column) {
-	    			return null;
+	    			continue;
 	    		}
 	            if (boards.isValidCoords(row, column) && boards.getPiece(row, column) != null) {
 	                Piece nextPiece = boards.getPiece(row, column);
 	                if (boards.isValidMove(rowForCurrentPiece, columnForCurrentPiece, row, column)) {
 	                	// Remove the starting piece from the board
 	                	boards.setPiece(rowForCurrentPiece, columnForCurrentPiece, null);
-	                	System.out.println(row + " " + column);
 	                    // Move to the next piece and recursively continue
 	                    String possibleMove = runThroughBoard(capturePath, boards, nextPiece, column, row, columnForCurrentPiece, rowForCurrentPiece);
 	                    // If the recursive call found a solution

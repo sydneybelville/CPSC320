@@ -67,9 +67,20 @@ public class UnitTest {
 		Controller controller = new Controller();
 		String result = controller.solveBoard(boards[0]);
 		String result2 = controller.solveBoard(boards[1]);
-
+		String result3 = controller.solveBoard(boards[2]);
+		String result4 = controller.solveBoard(boards[3]);
+		String result5 = controller.solveBoard(boards[4]);
+		
+		// Test a board that is not solvable 
 		verify(result.contains("Alice is stuck!"), "Expected: The board should have returned Alice is stuck! as the steps,  Result: " + result);
+		// Test the Bishop piece on the board first
 		verify(result2.contains("BRBNP"), "Expected: The board should have returned BRBNP as the steps,  Result: " + result2);
+		// Test the Rook piece on the board first
+		verify(result3.contains("RQNBR"), "Expected: The board should have returned RQNBR as the steps,  Result: " + result3);	
+		// Test the Knight piece on the board first
+		verify(result4.contains("NBRQ"), "Expected: The board should have returned NBRQ as the steps,  Result: " + result4);		
+		// Test the Queen piece on the board first
+		verify(result5.contains("QNRBK"), "Expected: The board should have returned QNRBK as the steps,  Result: " + result5);	
 	}
 	
 	
