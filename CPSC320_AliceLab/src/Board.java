@@ -30,9 +30,6 @@ public class Board {
 		if (isBlockedMove (startRow, startCol, endRow, endCol))
 			return false;
 		
-		if (board[endRow][endCol] != null)
-			return false;
-		
 		return true;
 	}
 

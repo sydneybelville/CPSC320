@@ -66,18 +66,10 @@ public class UnitTest {
 	public void testBoards() {
 		Controller controller = new Controller();
 		String result = controller.solveBoard(boards[0]);
-		// Test the Pawn piece with the ______ board
-		
-		// Test the Bishop piece with the ______ board
+		String result2 = controller.solveBoard(boards[1]);
+
 		verify(result.contains("Alice is stuck!"), "Expected: The board should have returned Alice is stuck! as the steps,  Result: " + result);
-		// Test the Rook piece with the ______ board
-		
-		// Test the Knight piece with the ______ board
-		
-		// Test the Queen and King pieces with the _____ board
-		
-		// Test a non-working board with the ______ board
-		
+		verify(result2.contains("BRBNP"), "Expected: The board should have returned BRBNP as the steps,  Result: " + result2);
 	}
 	
 	

@@ -13,6 +13,7 @@ public class Controller {
 	}
 	
 	
+	
 	public void go() {
 		// Need to get the boards, run through all the boards, then solve them
 		this.boards = getBoard();
@@ -21,6 +22,7 @@ public class Controller {
 			System.out.println("Board " + (i + 1) + ": " + capturePath);
 		}
 	}
+	
 	
 	
 	public Board[] getBoard() {
@@ -108,17 +110,27 @@ public class Controller {
 	public String runThroughBoard (String capturePath, Board boards, Piece currentPlayer, int columnForCurrentPiece, int rowForCurrentPiece, int columnForPreviousPiece, int rowForPreviousPiece) {
 		if (currentPlayer == null)
 			return null;
+		
 		// Add the current piece to the path
 	    capturePath += boards.getPiece(rowForCurrentPiece, columnForCurrentPiece).getSymbol();
 
-	    // Check if all pieces have been captured
-	    if (boards.countPieces(PieceColor.Black) == 0) {
+	    // Check if all pieces have been captured but the one at the top
+	    if (boards.countPieces(PieceColor.Black) == 1 && rowForCurrentPiece == 0) {
 	        return capturePath;
+	    }
+	    
+	    // Check to see if current piece is not in the top row
+	    if (boards.countPieces(PieceColor.Black) == 1) {
+	    	return null;
 	    }
 
 	    // Attempt to move and capture the next piece
 	    for (int row = 0; row < 8; row++) {
 	        for (int column = 0; column < 8; column++) {
+	        	// if current row and column are equal to row and column, return null
+	    		if (rowForCurrentPiece == row && columnForCurrentPiece == column) {
+	    			return null;
+	    		}
 	            if (boards.isValidCoords(row, column) && boards.getPiece(row, column) != null) {
 	                Piece nextPiece = boards.getPiece(row, column);
 	                if (boards.isValidMove(rowForCurrentPiece, columnForCurrentPiece, row, column)) {
